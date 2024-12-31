@@ -1,13 +1,19 @@
 using System;
+using Unity.Mathematics;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Components
     private Rigidbody2D m_rigidbody2D;
     private GatherInput m_gatherInput;
     private Transform m_transform;
+    private Animator m_animator;
+
+    //Values
     [SerializeField]  private float speed;
+    private int idSpeed;
 
     private int direction = 1;
 
@@ -17,9 +23,22 @@ public class PlayerController : MonoBehaviour
         m_gatherInput = GetComponent<GatherInput>();
         m_transform = GetComponent<Transform>();
         m_rigidbody2D = GetComponent<Rigidbody2D>();
+        m_animator = GetComponent<Animator>();
+        idSpeed = Animator.StringToHash("Speed");
     }
 
     // Update is called once per frame
+    private void Update()
+    {
+        SetAnimatorValues();
+       
+    }
+
+    private void SetAnimatorValues()
+    {
+        m_animator.SetFloat(idSpeed, Mathf.Abs(m_rigidbody2D.linearVelocityX));
+    }
+
     void FixedUpdate()
     {
         Move();
