@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     //Values
     [SerializeField]  private float speed;
     private int idSpeed;
+    [SerializeField] private float jumpForce;
 
     private int direction = 1;
 
@@ -42,8 +43,9 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        Jump();
     }
-
+   
     private void Move()
     {
         Flip();
@@ -57,5 +59,14 @@ public class PlayerController : MonoBehaviour
             m_transform.localScale = new Vector3(-m_transform.localScale.x,1,1);
             direction *= -1;
         }
+    }
+
+    private void Jump()
+    {
+        if(m_gatherInput.IsJumping)
+        {
+            m_rigidbody2D.linearVelocity = new Vector2(speed * m_gatherInput.ValueX, jumpForce);
+        }
+        m_gatherInput.IsJumping = false;
     }
 }
