@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -14,11 +15,12 @@ public class PlayerController : MonoBehaviour
     //ANIMATOR IDS
     private int idIsGrounded;
     private int idSpeed;
+    private int idIsWallDetected;
 
     [Header("Move Settings")]
-    [SerializeField]  private float speed;
+    [SerializeField] private float speed;
     private int direction = 1;
-    
+
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce;
     [SerializeField] private int extraJumps;
@@ -38,6 +40,11 @@ public class PlayerController : MonoBehaviour
     [Header("Wall Settings")]
     [SerializeField] private float checkWallDistance;
     [SerializeField] private bool isWallDetected;
+    [SerializeField] bool canWallSlide;
+    [SerializeField] float slideSpeed;
+    [SerializeField] private Vector2 wallJumpForce;
+    [SerializeField] private bool isWallJumping;
+    [SerializeField] private float wallJumpDuration;
 
 
 
@@ -54,6 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         idSpeed = Animator.StringToHash("speed");
         idIsGrounded = Animator.StringToHash("isGrounded");
+        idIsWallDetected = Animator.StringToHash("isWallDetected");
         lFoot = GameObject.Find("LFoot").GetComponent<Transform>();
         rFoot = GameObject.Find("RFoot").GetComponent<Transform>();
         counterExtraJumps = extraJumps;
@@ -63,13 +71,14 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         SetAnimatorValues();
-       
+
     }
 
     private void SetAnimatorValues()
     {
         m_animator.SetFloat(idSpeed, Mathf.Abs(m_rigidbody2D.linearVelocityX));
-        m_animator.SetBool(idIsGrounded,isGrounded);
+        m_animator.SetBool(idIsGrounded, isGrounded);
+        m_animator.SetBool(idIsWallDetected, isWallDetected);
     }
 
     void FixedUpdate()
@@ -83,6 +92,16 @@ public class PlayerController : MonoBehaviour
     {
         HandleGround();
         HandleWall();
+        HandWallSlide();
+    }
+
+    private void HandWallSlide()
+    {
+        canWallSlide = isWallDetected;
+        if (!canWallSlide) return;
+        slideSpeed = m_gatherInput.Value.y < 0 ? 1 : 0.5f;
+        m_rigidbody2D.linearVelocity = new Vector2(m_rigidbody2D.linearVelocityX, m_rigidbody2D.linearVelocityY * slideSpeed);
+
     }
 
     private void HandleWall()
@@ -109,37 +128,63 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (isWallDetected && !isGrounded) return;
+        if (isWallJumping) return;
         Flip();
-        m_rigidbody2D.linearVelocity = new Vector2(speed * m_gatherInput.ValueX, m_rigidbody2D.linearVelocityY);
+        m_rigidbody2D.linearVelocity = new Vector2(speed * m_gatherInput.Value.x, m_rigidbody2D.linearVelocityY);
     }
 
     private void Flip()
     {
-        if (m_gatherInput.ValueX * direction < 0)
+        if (m_gatherInput.Value.x * direction < 0)
         {
-            m_transform.localScale = new Vector3(-m_transform.localScale.x,1,1);
-            direction *= -1;
+            HandleDirection();
         }
+    }
+
+    private void HandleDirection()
+    {
+        m_transform.localScale = new Vector3(-m_transform.localScale.x, 1, 1);
+        direction *= -1;
     }
 
     private void Jump()
     {
-        if(m_gatherInput.IsJumping)
+        if (m_gatherInput.IsJumping)
         {
-            if(isGrounded)
+            if (isGrounded)
             {
-            m_rigidbody2D.linearVelocity = new Vector2(speed * m_gatherInput.ValueX, jumpForce);
-            canDoubleJump = true;
+                m_rigidbody2D.linearVelocity = new Vector2(speed * m_gatherInput.Value.x, jumpForce);
+                canDoubleJump = true;
             }
+            else if (isWallDetected) WallJump();
+            else if (counterExtraJumps > 0 && canDoubleJump) DoubleJump();
 
-            else if(counterExtraJumps > 0 && canDoubleJump)
-            {
-              m_rigidbody2D.linearVelocity = new Vector2(speed * m_gatherInput.ValueX, jumpForce);
-              counterExtraJumps--;
-            }
         }
         m_gatherInput.IsJumping = false;
     }
+
+    private void WallJump()
+    {
+        m_rigidbody2D.linearVelocity = new Vector2(wallJumpForce.x * -direction, wallJumpForce.y);
+        HandleDirection();
+        StartCoroutine(WallJumpCorutine());
+    }
+
+    IEnumerator WallJumpCorutine()
+    {
+        isWallJumping = true;
+        yield return new WaitForSeconds(wallJumpDuration);
+        isWallJumping = false;
+
+    }
+
+    private void DoubleJump()
+    {
+        m_rigidbody2D.linearVelocity = new Vector2(speed * m_gatherInput.Value.x, jumpForce);
+        counterExtraJumps-= 1;
+    }
+
 
     private void OnDrawGizmos()
     {
