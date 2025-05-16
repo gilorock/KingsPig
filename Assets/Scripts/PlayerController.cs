@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private int idIsGrounded;
     private int idSpeed;
     private int idIsWallDetected;
+    private int idKnockback;
 
     [Header("Move Settings")]
     [SerializeField] private float speed;
@@ -46,6 +47,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isWallJumping;
     [SerializeField] private float wallJumpDuration;
 
+    [Header("Knock Settings")]
+    
+    [SerializeField] private bool isKnocked;
+    [SerializeField] private bool canBeKnocked;
+    [SerializeField] private Vector2 knockedPower;
+    [SerializeField] private float knockedDuration;
+
 
 
 
@@ -62,6 +70,7 @@ public class PlayerController : MonoBehaviour
         idSpeed = Animator.StringToHash("speed");
         idIsGrounded = Animator.StringToHash("isGrounded");
         idIsWallDetected = Animator.StringToHash("isWallDetected");
+        idKnockback = Animator.StringToHash("Knockback");
         lFoot = GameObject.Find("LFoot").GetComponent<Transform>();
         rFoot = GameObject.Find("RFoot").GetComponent<Transform>();
         counterExtraJumps = extraJumps;
@@ -83,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isKnocked) return;
         CheckCollision();
         Move();
         Jump();
@@ -185,7 +195,21 @@ public class PlayerController : MonoBehaviour
         counterExtraJumps-= 1;
     }
 
+    public void Knockback()
+    {
+        StartCoroutine(KnockbackRutine());
+        m_rigidbody2D.linearVelocity = new Vector2(knockedPower.x * -direction, knockedPower.y);
+        m_animator.SetTrigger(idKnockback);
+    }
 
+    private IEnumerator KnockbackRutine()
+    {
+        isKnocked = true;
+        canBeKnocked = false;
+        yield return new WaitForSeconds(knockedDuration);
+        isKnocked = false;
+        canBeKnocked= true;
+    }
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(m_transform.position, new Vector2(m_transform.position.x + (checkWallDistance *direction),
