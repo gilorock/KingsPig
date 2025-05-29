@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: e1d09f2e1378ffd4a9be58313142fda2
+guid: d84fcef673d28454a933b8bdc9c42d9a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4658123360840285283
-    second: Big Diamond Idle (18x14)_0
+      213: 5318734056466808914
+    second: Big Diamond Idle Red_0
   - first:
-      213: -9132469165398134140
-    second: Big Diamond Idle (18x14)_1
+      213: -7104974242857012180
+    second: Big Diamond Idle Red_1
   - first:
-      213: -317340658027101851
-    second: Big Diamond Idle (18x14)_2
+      213: 8142700519704107747
+    second: Big Diamond Idle Red_2
   - first:
-      213: -8617004404026540419
-    second: Big Diamond Idle (18x14)_3
+      213: 6763014438204567889
+    second: Big Diamond Idle Red_3
   - first:
-      213: -388936619253760004
-    second: Big Diamond Idle (18x14)_4
+      213: -183694121672503947
+    second: Big Diamond Idle Red_4
   - first:
-      213: 7007702355635686782
-    second: Big Diamond Idle (18x14)_5
+      213: -8276813995157435076
+    second: Big Diamond Idle Red_5
   - first:
-      213: -5186337078384295754
-    second: Big Diamond Idle (18x14)_6
+      213: -5814524656502328830
+    second: Big Diamond Idle Red_6
   - first:
-      213: -3861491957359190046
-    second: Big Diamond Idle (18x14)_7
+      213: -5361376763346812999
+    second: Big Diamond Idle Red_7
   - first:
-      213: -1205625001301180620
-    second: Big Diamond Idle (18x14)_8
+      213: -8022891411165350896
+    second: Big Diamond Idle Red_8
   - first:
-      213: 7845550569223017404
-    second: Big Diamond Idle (18x14)_9
+      213: -2271071385911187501
+    second: Big Diamond Idle Red_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -140,7 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Big Diamond Idle (18x14)_0
+      name: Big Diamond Idle Red_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d938a2dab750b5fb0800000000000000
-      internalID: -4658123360840285283
+      spriteID: 2500a7ac170ffc940800000000000000
+      internalID: 5318734056466808914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big Diamond Idle (18x14)_1
+      name: Big Diamond Idle Red_1
       rect:
         serializedVersion: 2
         x: 18
@@ -177,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4827c321ea3f24180800000000000000
-      internalID: -9132469165398134140
+      spriteID: c243534e19f066d90800000000000000
+      internalID: -7104974242857012180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big Diamond Idle (18x14)_2
+      name: Big Diamond Idle Red_2
       rect:
         serializedVersion: 2
         x: 36
@@ -199,14 +199,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56181855a54989bf0800000000000000
-      internalID: -317340658027101851
+      spriteID: 3ea1a551bfea00170800000000000000
+      internalID: 8142700519704107747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big Diamond Idle (18x14)_3
+      name: Big Diamond Idle Red_3
       rect:
         serializedVersion: 2
         x: 54
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7e750e36204a6880800000000000000
-      internalID: -8617004404026540419
+      spriteID: 1517500bccd0bdd50800000000000000
+      internalID: 6763014438204567889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big Diamond Idle (18x14)_4
+      name: Big Diamond Idle Red_4
       rect:
         serializedVersion: 2
         x: 72
@@ -243,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfffc3994383a9af0800000000000000
-      internalID: -388936619253760004
+      spriteID: 57d026a6b23637df0800000000000000
+      internalID: -183694121672503947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big Diamond Idle (18x14)_5
+      name: Big Diamond Idle Red_5
       rect:
         serializedVersion: 2
         x: 90
@@ -265,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e7d455ff92c504160800000000000000
-      internalID: 7007702355635686782
+      spriteID: c3dc8aa1689d22d80800000000000000
+      internalID: -8276813995157435076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big Diamond Idle (18x14)_6
+      name: Big Diamond Idle Red_6
       rect:
         serializedVersion: 2
         x: 108
@@ -287,14 +287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b08775d7ed6608b0800000000000000
-      internalID: -5186337078384295754
+      spriteID: 202bd6fa1a8ae4fa0800000000000000
+      internalID: -5814524656502328830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big Diamond Idle (18x14)_7
+      name: Big Diamond Idle Red_7
       rect:
         serializedVersion: 2
         x: 126
@@ -309,14 +309,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2efd39a1689396ac0800000000000000
-      internalID: -3861491957359190046
+      spriteID: 9bffda15d309895b0800000000000000
+      internalID: -5361376763346812999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big Diamond Idle (18x14)_8
+      name: Big Diamond Idle Red_8
       rect:
         serializedVersion: 2
         x: 144
@@ -331,14 +331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43ffc11f272c44fe0800000000000000
-      internalID: -1205625001301180620
+      spriteID: 014f4f5c4c6f8a090800000000000000
+      internalID: -8022891411165350896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big Diamond Idle (18x14)_9
+      name: Big Diamond Idle Red_9
       rect:
         serializedVersion: 2
         x: 162
@@ -353,8 +353,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb3d6e9dcaef0ec60800000000000000
-      internalID: 7845550569223017404
+      spriteID: 3d7a53f6b988b70e0800000000000000
+      internalID: -2271071385911187501
       vertices: []
       indices: 
       edges: []
@@ -363,7 +363,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cc60fea148b78304cbe376e1fe77b18c
+    spriteID: f4fe2e4af820ea44dbaeee91e94ca79e
     internalID: 0
     vertices: []
     indices: 
@@ -373,16 +373,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Big Diamond Idle (18x14)_0: -4658123360840285283
-      Big Diamond Idle (18x14)_1: -9132469165398134140
-      Big Diamond Idle (18x14)_2: -317340658027101851
-      Big Diamond Idle (18x14)_3: -8617004404026540419
-      Big Diamond Idle (18x14)_4: -388936619253760004
-      Big Diamond Idle (18x14)_5: 7007702355635686782
-      Big Diamond Idle (18x14)_6: -5186337078384295754
-      Big Diamond Idle (18x14)_7: -3861491957359190046
-      Big Diamond Idle (18x14)_8: -1205625001301180620
-      Big Diamond Idle (18x14)_9: 7845550569223017404
+      Big Diamond Idle Red_0: 5318734056466808914
+      Big Diamond Idle Red_1: -7104974242857012180
+      Big Diamond Idle Red_2: 8142700519704107747
+      Big Diamond Idle Red_3: 6763014438204567889
+      Big Diamond Idle Red_4: -183694121672503947
+      Big Diamond Idle Red_5: -8276813995157435076
+      Big Diamond Idle Red_6: -5814524656502328830
+      Big Diamond Idle Red_7: -5361376763346812999
+      Big Diamond Idle Red_8: -8022891411165350896
+      Big Diamond Idle Red_9: -2271071385911187501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
