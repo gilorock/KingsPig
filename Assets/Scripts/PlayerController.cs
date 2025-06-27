@@ -56,6 +56,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 knockedPower;
     [SerializeField] private float knockedDuration;
 
+    [Header("Death VFX")]
+    [SerializeField] private GameObject deathVFX;
+
 
 
 
@@ -215,6 +218,15 @@ public class PlayerController : MonoBehaviour
         isKnocked = false;
         //canBeKnocked= true;
     }
+
+    public void Die()
+    {
+        GameObject deathVFXPrefab = Instantiate(deathVFX, mTransform.position, Quaternion.identity);
+        Destroy(gameObject);
+
+    }
+
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(mTransform.position, new Vector2(mTransform.position.x + (checkWallDistance *_direction),

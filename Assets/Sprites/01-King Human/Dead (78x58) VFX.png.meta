@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: b18c503f41ac13d4098ee59729296944
+guid: f705dceb4211d6d4186000172fdc0465
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5027722412210507872
-    second: Closiong (46x56)_0
+      213: -8292607363425890168
+    second: Dead (78x58) VFX_0
+  - first:
+      213: 8824481685576425127
+    second: Dead (78x58) VFX_1
+  - first:
+      213: 8206067168882773747
+    second: Dead (78x58) VFX_2
+  - first:
+      213: -1253821907722342757
+    second: Dead (78x58) VFX_3
+  - first:
+      213: -2858282452404263236
+    second: Dead (78x58) VFX_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,35 +125,123 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Closiong (46x56)_0
+      name: Dead (78x58) VFX_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 46
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 78
+        height: 58
+      alignment: 9
+      pivot: {x: 0.41, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 060d31955ee06c540800000000000000
-      internalID: 5027722412210507872
+      spriteID: 88016310a8dbaec80800000000000000
+      internalID: -8292607363425890168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Closiong (46x56)_1
+      name: Dead (78x58) VFX_1
       rect:
         serializedVersion: 2
-        x: 46
+        x: 78
         y: 0
-        width: 46
-        height: 56
+        width: 78
+        height: 58
+      alignment: 9
+      pivot: {x: 0.41, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ae19b3c65bd67a70800000000000000
+      internalID: 8824481685576425127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead (78x58) VFX_2
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 78
+        height: 58
+      alignment: 9
+      pivot: {x: 0.41, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fec04ccc9ec1e170800000000000000
+      internalID: 8206067168882773747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead (78x58) VFX_3
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 0
+        width: 78
+        height: 58
+      alignment: 9
+      pivot: {x: 0.41, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9e6b923e97899ee0800000000000000
+      internalID: -1253821907722342757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead (78x58) VFX_4
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 78
+        height: 58
+      alignment: 9
+      pivot: {x: 0.41, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb626bcd0475558d0800000000000000
+      internalID: -2858282452404263236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead (78x58) VFX_5
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 40
+        width: 14
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,30 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06ae5a0d647c76742bddaf00654fa1c7
-      internalID: -120788870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Closiong (46x56)_2
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 0
-        width: 46
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad680e8eb0325e24e861c89ce4ad1a84
-      internalID: -714487551
+      spriteID: 7fc59d46215996045806ebfd1fcc36ff
+      internalID: 1761924017
       vertices: []
       indices: 
       edges: []
@@ -182,7 +260,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c9adbb4ed9dcd9b45b0ef17c4a3d8be3
+    spriteID: ce45b6295d821464bb63eed0dff96ba2
     internalID: 0
     vertices: []
     indices: 
@@ -192,9 +270,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Closiong (46x56)_0: 5027722412210507872
-      Closiong (46x56)_1: -120788870
-      Closiong (46x56)_2: -714487551
+      Dead (78x58) VFX_0: -8292607363425890168
+      Dead (78x58) VFX_1: 8824481685576425127
+      Dead (78x58) VFX_2: 8206067168882773747
+      Dead (78x58) VFX_3: -1253821907722342757
+      Dead (78x58) VFX_4: -2858282452404263236
+      Dead (78x58) VFX_5: 1761924017
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
