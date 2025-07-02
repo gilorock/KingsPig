@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
@@ -5,6 +6,11 @@ using UnityEngine.Serialization;
 public class GameManager : MonoBehaviour
 { 
     public static GameManager Instance;
+
+    [Header("Player Settings")]
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Transform playerRespawnPoint;
+    [SerializeField] private float respawnPlayerDelay;
     [SerializeField] private PlayerController playerController;
     
     public PlayerController PlayerController => playerController;
@@ -20,6 +26,18 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
         
     }
+
+    public void RespawnPlayer() =>  StartCoroutine (RespawnPlayerCorutine());
+    
+
+    IEnumerator RespawnPlayerCorutine()
+    {
+       yield return new WaitForSeconds(respawnPlayerDelay);
+       GameObject newPlayer = Instantiate(playerPrefab, playerRespawnPoint.position, Quaternion.identity);
+       playerController = newPlayer.GetComponent<PlayerController>();
+
+    }
+        
 
     public void AddDiamond() => diamondCollected++;
     public bool DiamondHaveRandomLook() => diamondHaveRandomLook;    
