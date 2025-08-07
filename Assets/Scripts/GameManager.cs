@@ -15,6 +15,13 @@ public class GameManager : MonoBehaviour
     
     public PlayerController PlayerController => playerController;
 
+    [Header("Respawn Settings")]
+    public bool hasCheckPointActive;
+    public Vector3 CheckPointRespawnPosition;
+
+
+
+
     [Header("Diamond Manager")]
     [SerializeField] private int diamondCollected;
     [SerializeField] private bool diamondHaveRandomLook;
@@ -27,13 +34,20 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void RespawnPlayer() =>  StartCoroutine (RespawnPlayerCorutine());
+    public void RespawnPlayer()
+    {
+        if (hasCheckPointActive) playerRespawnPoint.position = CheckPointRespawnPosition;
+        StartCoroutine(RespawnPlayerCorutine());
+
+
+    }
     
 
     IEnumerator RespawnPlayerCorutine()
     {
        yield return new WaitForSeconds(respawnPlayerDelay);
        GameObject newPlayer = Instantiate(playerPrefab, playerRespawnPoint.position, Quaternion.identity);
+        newPlayer.name = "Player";
        playerController = newPlayer.GetComponent<PlayerController>();
 
     }

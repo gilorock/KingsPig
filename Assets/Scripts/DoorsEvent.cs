@@ -16,6 +16,7 @@ public class DoorsEvent : MonoBehaviour
 
     public void DoorOut()
     {
+        if(!GameManager.Instance.hasCheckPointActive)
         animatorEntranceDoor.SetTrigger(_idOpenDoor);
     }
 }

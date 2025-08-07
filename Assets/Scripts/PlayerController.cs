@@ -16,10 +16,11 @@ public class PlayerController : MonoBehaviour
     private Animator _mAnimator;
 
     //ANIMATOR IDS
-    private int _idIsGrounded;
-    private int _idSpeed;
-    private int _idIsWallDetected;
-    private int _idKnockback;
+    private readonly int _idIsGrounded = Animator.StringToHash("isGrounded");
+    private readonly int _idSpeed = Animator.StringToHash("speed");
+    private readonly int _idIsWallDetected = Animator.StringToHash("isWallDetected");
+    private readonly int _idKnockback = Animator.StringToHash("Knockback");
+    private readonly int _idIdle = Animator.StringToHash("Idle");
 
     [Header("Move Settings")]
     [SerializeField] private float speed;
@@ -72,27 +73,40 @@ public class PlayerController : MonoBehaviour
         mTransform = GetComponent<Transform>();
         _mRigidbody2D = GetComponent<Rigidbody2D>();
         _mAnimator = GetComponent<Animator>();
-        canMove = false;
         StartCoroutine(CanMoveRoutine());
         
+
     }
 
    
 
-    private void Start()
+    private void Start() => counterExtraJumps = extraJumps;  
+    
+
+
+    private void CheckPlayerRespawnState()
     {
-        _idSpeed = Animator.StringToHash("speed");
-        _idIsGrounded = Animator.StringToHash("isGrounded");
-        _idIsWallDetected = Animator.StringToHash("isWallDetected");
-        _idKnockback = Animator.StringToHash("Knockback");
-        counterExtraJumps = extraJumps;
-        
+        if (GameManager.Instance.hasCheckPointActive)
+        {
+            canMove = true;
+            StartInCheckPoint();
+
+        }
+        else
+        {
+            canMove = false;
+            StartCoroutine(CanMoveRoutine());
+        }
     }
+
+    private void StartInCheckPoint() => _mAnimator.Play(_idIdle);
+    
 
     // Update is called once per frame
     private void Update()
     {
         SetAnimatorValues();
+        CheckPlayerRespawnState();
 
     }
 
@@ -144,10 +158,8 @@ public class PlayerController : MonoBehaviour
             canDoubleJump = false;
         }
 
-        else
-        {
-            isGrounded = false;
-        }
+        else isGrounded = false;
+        
     }
 
     private void Move()
@@ -167,10 +179,8 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()
     {
-        if (_mGatherInput.Value.x * _direction < 0)
-        {
-            HandleDirection();
-        }
+        if (_mGatherInput.Value.x * _direction < 0) HandleDirection();
+        
     }
 
     private void HandleDirection()
